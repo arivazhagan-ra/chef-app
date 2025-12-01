@@ -1,0 +1,269 @@
+#root {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 1rem;
+  font-family: var(--default-font-family);
+  text-align: center;
+  --default-font-family:"Roboto", sans-serif;
+  --default-text-color:#7C3F1D;
+  --default-background-color:#FCE9A2;
+}
+body[data-theme='light'] {
+  background: #fff;
+  color: #000;
+  overflow: scroll;
+}
+
+/* Dark mode */
+body[data-theme='dark'] {
+  background: #121212;
+  color: #e4e4e4;
+}
+
+/* Optional toggle button style */
+.theme-toggle {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 8px 14px;
+  cursor: pointer;
+  border-radius: 6px;
+  border: none;
+  background: #444;
+  color: white;
+}
+
+body[data-theme='dark'] main ul li,
+body[data-theme='dark'] .ai-output{
+  color: grey;
+}
+
+.show{
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+.hide{
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+header{
+  width: 60%;
+  margin: 0 auto;
+}
+/* header */
+header img {
+  width: 4em;
+  padding: 1.2em;
+  background-color:var(--default-background-color);
+  border-radius: 50%;
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.10)
+}
+header h1{
+  color:var(--default-text-color);
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 4em;
+  margin: .2em;
+}
+header p{
+  color:grey;
+  font-size: 1.3em;
+}
+/* main */
+main{
+  width: 60%;
+  margin: 0 auto;
+}
+main .title{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  color: var(--default-text-color);
+  margin: 4em auto 1em auto;
+  width: 100%;
+  height: 70px;
+
+}
+main .title h4{
+  margin: .1em;
+  font-size: 1.8em;
+  font-family: var(--default-font-family);
+}
+main .title p{
+  margin: .1em;
+  font-size: 1.1em;
+  color: grey;
+}
+form{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 100%;
+  margin: 0 auto;
+}
+form input{
+  padding: 1em;
+  border-radius: 20px;
+  border:none;
+  width: 60%;
+  box-shadow: 0 0 2px rgb(5, 0, 0);
+  font-size: .8em;
+}
+form button{
+  width: 30%;
+  padding: .8em;
+  border-radius: 8px;
+  background-color:#eebf18;
+  border:none;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+  font-family: var(--default-font-family);
+  font-size: .9em;
+}
+main ul{
+  width: 85%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+main ul li::marker{
+  color: #eebf18;
+  font-size: 1.3em;
+}
+main ul li{
+  text-align: center;
+  font-size: 1.2em;
+  padding: .3em;
+  list-style-type: none;
+  /* color: grey; */
+  color: black;
+}
+.recipe{
+  margin:2em;
+}
+.recipe button{
+  padding: .9em 2.8em;
+  width: 50%;
+  border-radius: 20px;
+  border:none;
+  background-color:#eebf18;
+    box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.10);
+  font-size: .9em;
+}
+#blurLayer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(5px);
+    background-color: rgba(255, 255, 255,.2);
+    z-index: 999;
+}
+#loader {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+}
+
+#loader i {
+    font-size: 50px;
+    color: #454444;
+}
+#loader h2{
+  color: var(--default-text-color);
+}
+.error{
+  backdrop-filter: blur(5px);
+  background-color: rgba(255, 255, 255,.2);
+  width: 200px;
+  transform: translate(-220px,220px);
+  color: red;
+  font-size: 2em;
+}
+
+.ai-output ol li{
+  line-height: 1.8em;
+}
+.ai-title{
+  color: var(--default-text-color);
+  font-size: 2em;
+}
+.ai-output p:nth-child(1){
+  background-color: var(--default-background-color);
+  color: var(--default-text-color);
+  padding: 1em;
+  font-size: 1.1em;
+  font-weight: bold;
+  border-radius: 9px;
+}
+.ai-output p:nth-child(2){
+  font-size: 2em;
+  color: var(--default-text-color);
+}
+.ai-output p:nth-child(1)::before{
+  content: "♔ Chef Claude says : ";
+}
+.ai-output p strong{
+  font-weight: bold;
+}
+/* media  queries */
+@media screen and (max-width:680px){
+  header{
+    width: 100%;
+  }
+  header h1{
+    font-size: 3em;
+  }
+  header p{
+    font-size: 1.2em;
+  }
+  main{
+    width: 90%;
+  }
+  main .title h4{
+    font-size: 1.5em;
+    margin-bottom: .2em;
+  }
+  main .title p{
+    font-size: 1em;
+  }
+}
+@media screen and (max-width:480px){
+  header h1{
+    font-size: 2.2em;
+  }
+  header p{
+    font-size: 1em;
+  }
+  main .title{
+    margin-top: 3em;
+  }
+  main .title h4{
+    font-size: 1.2em;
+  }
+  form{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+  }
+  form input{
+    width: 100%;
+  }
+  form button{
+    width: 50%;
+  }
+  main .recipe button{
+    width: 100%;
+  }
+  main ul{
+    width: 75%;
+  }
+
+}
